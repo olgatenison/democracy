@@ -1,0 +1,13 @@
+{
+  "LocaleSwitcher": {
+    "label": "Change language"
+  },
+
+  "About": {
+    "title": "About Us",
+    "content": "This is the About page content in English."
+  },
+  "HomePage": {
+    "welcome": "Welcome to our site!"
+  }
+}
