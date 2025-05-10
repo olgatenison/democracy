@@ -1,10 +1,11 @@
 // app/[locale]/page.js
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
-import { getFooter } from "../../lib/contentful.js";
 
+import { getFooter } from "../../lib/contentful.js";
+import Footer from "../../components/Footer";
 export default async function MainPage({ params }) {
-  const { locale } = params; // Доступ к параметрам маршрута
+  const { locale } = await params; // Доступ к параметрам маршрута
 
   // Устанавливаем локаль
   setRequestLocale(locale);
@@ -16,19 +17,14 @@ export default async function MainPage({ params }) {
   const footerData = await getFooter(locale);
 
   return (
-    <>
-      <main>
+    <div>
+      <main className="max-w-7xl mx-auto ">
         <h1>{t("title")}</h1>
         <p>{t("content")}</p>
       </main>
 
       {/* Футер */}
-      <footer>
-        <p>{footerData[0].footerText}</p>
-        <p>{footerData[0].address}</p>
-        <p>{footerData[0].cryptoInfo}</p>
-        <p>Contact us: {footerData[0].contactEmail}</p>
-      </footer>
-    </>
+      <Footer footerData={footerData} />
+    </div>
   );
 }
