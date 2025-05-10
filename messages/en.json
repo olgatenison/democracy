@@ -3,11 +3,12 @@
     "label": "Change language"
   },
 
-  "About": {
+  "MainPage": {
     "title": "About Us",
-    "content": "This is the About page content in English."
-  },
-  "HomePage": {
-    "welcome": "Welcome to our site!"
+    "content": "This is the About page content in English.",
+    "footerText": "1111© Building Democracy Foundation, 501(c)(3), EIN: 99-2540715, 2024–2025",
+    "address": "11111405 E Laburnum Ave Ste 3 Richmond, VA 23222",
+    "cryptoInfo": "11111Building Democracy Foundation en",
+    "contactEmail": "11111igors@buildingdemocracy.foundation"
   }
 }
