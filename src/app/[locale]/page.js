@@ -2,6 +2,11 @@
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 
+import Hero from "../../components/Hero.js";
+import About from "../../components/About.js";
+import Author from "@/components/Author.js";
+import Director from "@/components/Director.js";
+
 import { getFooter } from "../../lib/contentful.js";
 import Footer from "../../components/Footer";
 export default async function MainPage({ params }) {
@@ -18,9 +23,13 @@ export default async function MainPage({ params }) {
 
   return (
     <div>
-      <main className="max-w-7xl mx-auto ">
+      <main className="max-w-7xl mx-auto bg-white ">
         <h1>{t("title")}</h1>
         <p>{t("content")}</p>
+        <Hero />
+        <About />
+        <Director />
+        <Author />
       </main>
 
       {/* Футер */}
