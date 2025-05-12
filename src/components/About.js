@@ -5,17 +5,21 @@ export default function About() {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
           <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
             <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-              Our people
+              BDF’s mission
             </h2>
-            <p className="mt-6 text-xl/8 text-gray-600">
-              Quasi est quaerat. Sit molestiae et. Provident ad dolorem
-              occaecati eos iste. Soluta rerum quidem minus ut molestiae velit
-              error quod. Excepturi quidem expedita molestias quas.
+            <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:max-w-md sm:text-xl/8 lg:max-w-none">
+              BDF’s mission is to advance democracy in authoritarian societies
+              and emerging democracies.
             </p>
             <p className="mt-6 text-base/7 text-gray-600">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-              lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-              fugiat. Quasi aperiam sit non sit neque reprehenderit.
+              We achieve this through educational, scientific, and
+              community-building initiatives aimed at strengthening democratic
+              institutions, countering authoritarianism, and fostering
+              democratic resilience. Because democracy cannot thrive without the
+              rule of law, ensuring its enforcement is a key focus of BDF’s
+              work. This includes defending human and civil rights, pursuing
+              strategic litigation, combating prejudice and discrimination, and
+              undertaking similar efforts.
             </p>
           </div>
           <div className="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">

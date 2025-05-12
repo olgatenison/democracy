@@ -9,6 +9,8 @@ import Director from "@/components/Director.js";
 
 import { getFooter } from "../../lib/contentful.js";
 import Footer from "../../components/Footer";
+import Donate from "@/components/Donate.js";
+
 export default async function MainPage({ params }) {
   const { locale } = await params; // Доступ к параметрам маршрута
 
@@ -30,6 +32,7 @@ export default async function MainPage({ params }) {
         <About />
         <Director />
         <Author />
+        <Donate />
       </main>
 
       {/* Футер */}
