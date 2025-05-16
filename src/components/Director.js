@@ -23,7 +23,7 @@ export default function Director({ directorData }) {
             {directorData.title}
           </h2>
           <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:max-w-md sm:text-xl/8 lg:max-w-none">
-            Bridging Legal Cultures Through Practice and Perspective
+            {directorData.subtitle}
           </p>
         </div>
         <ul role="list" className="divide-y divide-gray-200 xl:col-span-3">
