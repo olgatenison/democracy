@@ -9,6 +9,7 @@ import Director from "@/components/Director.js";
 
 import { getFooter } from "../../lib/contentful.js";
 import Footer from "../../components/Footer";
+import { getManagingDirector } from "../../lib/contentful.js";
 import Donate from "@/components/Donate.js";
 
 export default async function MainPage({ params }) {
@@ -22,6 +23,7 @@ export default async function MainPage({ params }) {
 
   // Получаем данные футера
   const footerData = await getFooter(locale);
+  const directorData = await getManagingDirector(locale);
 
   return (
     <div>
@@ -30,7 +32,7 @@ export default async function MainPage({ params }) {
         <p>{t("content")}</p>
         <Hero />
         <About />
-        <Director />
+        <Director directorData={directorData} />
         <Author />
         <Donate />
       </main>

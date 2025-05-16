@@ -28,3 +28,32 @@ export async function getFooter(locale) {
     return []; // Возвращаем пустой массив в случае ошибки
   }
 }
+
+// ✅ Получение данных управляющего директора
+export async function getManagingDirector(locale) {
+  const contentfulLocale = locale === "en" ? "en-US" : "ru";
+
+  try {
+    const response = await client.getEntries({
+      content_type: "managingDirector", // 👈 название content type
+      locale: contentfulLocale,
+    });
+
+    const item = response.items[0]; // Предполагаем, что запись одна
+
+    return {
+      title: item.fields.directorTitle,
+      subtitle: item.fields.directorSubtitle,
+      name: item.fields.name,
+      position: item.fields.directorPosition,
+      photo: item.fields.photo.fields.file.url, // 👈 ссылка на изображение
+      textFirst: item.fields.directorTextFirst,
+      textSecond: item.fields.directorTextSecond,
+      telegramLink: item.fields.directorTelegramLink,
+      youtubeLink: item.fields.directorYoutubeLink,
+    };
+  } catch (error) {
+    console.error("Ошибка при получении данных директора:", error);
+    return null;
+  }
+}
