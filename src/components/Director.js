@@ -18,7 +18,7 @@ export default function Director() {
     <div className="bg-white py-24 ">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-20 px-6 lg:px-8 xl:grid-cols-5">
         <div className="max-w-2xl xl:col-span-2">
-          <h2 className="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          <h2 className="text-pretty text-4xl font-semibold tracking-tight text-blue-900 sm:text-5xl">
             Managing Director
           </h2>
           <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:max-w-md sm:text-xl/8 lg:max-w-none">
@@ -41,7 +41,7 @@ export default function Director() {
               </div>
               <div className="max-w-xl flex-auto">
                 <p className="text-base/7 text-gray-600">{person.role}</p>
-                <h3 className="text-2xl font-semibold tracking-tight text-gray-900">
+                <h3 className="text-2xl font-semibold tracking-tight text-blue-900">
                   {person.name}
                 </h3>
 
