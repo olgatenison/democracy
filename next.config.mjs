@@ -5,7 +5,15 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Можно добавить свои настройки (например, images, i18n и т.д.)
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.ctfassets.net",
+        pathname: "**",
+      },
+    ],
+  },
 };
 
 export default withNextIntl(nextConfig);

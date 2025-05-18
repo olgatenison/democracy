@@ -10,5 +10,12 @@
     "address": "11111405 E Laburnum Ave Ste 3 Richmond, VA 23222",
     "cryptoInfo": "11111Building Democracy Foundation en",
     "contactEmail": "11111igors@buildingdemocracy.foundation"
+  },
+  "Navigation": {
+    "name": "Building Democracy Foundation",
+    "about": "About BDF",
+    "director": "Managing Director",
+    "donate": "Donate",
+    "contacts": "Contacts"
   }
 }

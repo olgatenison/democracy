@@ -2,32 +2,39 @@
 import React from "react";
 // import LocalSwitcher from "./LocaleSwitcher.js";
 import { Link } from "@/i18n/navigation.js";
-
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
 export default async function Navigation() {
+  const t = await getTranslations("Navigation");
+
   return (
-    <nav
-      className="fixed top-0 left-1/2 transform -translate-x-1/2 w-full max-w-7xl bg-white/20 backdrop-blur-md shadow-md z-50 rounded-b-2xl px-6 lg:px-8 py-3"
-      aria-label="Peamenüü"
-    >
-      <div className="mx-auto flex justify-between items-center">
+    <nav className="mx-auto w-full max-w-7xl px-6 lg:px-8 py-3">
+      <div className="mx-auto flex items-center">
         {/* Logo */}
-        <div className="focus-visible:outline focus-visible:outline-black rounded-md">
-          <Link href={{ pathname: "/" }} tabIndex={0}>
-            logo
-            {/* <Image
-              src="/hero/logo-white.svg"
-              alt="Plastiliin logo – avaleht"
-              width={120}
-              height={40}
-              priority
-            /> */}
+        <div>
+          <Link href={{ pathname: "/" }}>
+            {/* {t("name")} */}
+            <img src="/logo.svg" alt="logo" className="h-10" />
           </Link>
         </div>
 
         {/* Navigation Controls */}
-        <div className="w-full flex justify-end">{/* <LocalSwitcher /> */}</div>
+        <div className="w-full flex justify-end gap-6">
+          <div>
+            <p>{t("about")}</p>
+          </div>
+          <div>
+            <p>{t("director")}</p>
+          </div>
+          <div>
+            <p>{t("donate")}</p>
+          </div>
+          <div>
+            <p>{t("contacts")}</p>
+          </div>
+          {/* <LocalSwitcher /> */}
+        </div>
       </div>
     </nav>
   );

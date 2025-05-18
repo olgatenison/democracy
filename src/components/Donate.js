@@ -38,15 +38,7 @@ const team = [
 
 export default function Donate() {
   return (
-    <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-      {/* <div className="my-20  xl:mx-auto xl:max-w-7xl xl:px-8">
-        <img
-          alt=""
-          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-          className="aspect-[5/2] w-full object-cover xl:rounded-3xl"
-        />
-      </div> */}
-
+    <div className="mx-auto max-w-7xl px-6 pt-24 lg:px-8">
       <div className="mx-auto max-w-2xl ">
         <h2 className="text-pretty text-4xl font-semibold tracking-tight text-blue-900 sm:text-5xl text-center">
           Donate
@@ -55,10 +47,33 @@ export default function Donate() {
           Please note that sometimes we cannot fully disclose whom we help due
           to risks for people in authoritarian societies.
         </p>
+        <div className="mt-7 mx-auto w-fit">
+          <p className="font-semibold text-gray-900">
+            You have several options whom to help
+          </p>
+          <ul className="text-gray-600">
+            <li className="flex items-center gap-x-3 text-base/7 font-semibold ">
+              <div className="w-2 h-2 rounded-full flex-none bg-blue-900" />
+              To choose a specific fundraiser/person to support
+            </li>
+            <li className="flex items-center gap-x-3 text-base/7 font-semibold ">
+              <div className="w-2 h-2 rounded-full flex-none bg-blue-900" />
+              To donate to BDF to cover administrative costs
+            </li>
+            <li className="flex items-center gap-x-3 text-base/7 font-semibold ">
+              <div className="w-2 h-2 rounded-full flex-none bg-blue-900" />
+              To choose a specific fundraiser/person to support
+            </li>
+          </ul>
+        </div>
       </div>
+      <h3 className="text-pretty text-2xl font-semibold tracking-tight text-blue-900 sm:text-3xl text-center mt-20">
+        Current campaigns:
+      </h3>
+
       <ul
         role="list"
-        className="mx-auto mt-20  max-w-3xl flex gap-9 flex-wrap justify-center pb-20"
+        className="mx-auto mt-10  max-w-3xl flex gap-9 flex-wrap justify-center pb-20"
       >
         {team.map((person) => (
           <li key={person.id}>

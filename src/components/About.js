@@ -1,28 +1,18 @@
 import Image from "next/image";
 
-export default function About() {
+export default function About({ aboutData }) {
   return (
-    <div className=" overflow-hidden sm:mt-40 bg-white">
+    <div className=" overflow-hidden mt-20 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
           <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
             <h2 className="text-4xl font-semibold tracking-tight text-blue-900 sm:text-5xl">
-              BDF’s mission
+              {aboutData.title}
             </h2>
             <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:max-w-md sm:text-xl/8 lg:max-w-none">
-              BDF’s mission is to advance democracy in authoritarian societies
-              and emerging democracies.
+              {aboutData.subtitle}
             </p>
-            <p className="mt-6 text-base/7 text-gray-600">
-              We achieve this through educational, scientific, and
-              community-building initiatives aimed at strengthening democratic
-              institutions, countering authoritarianism, and fostering
-              democratic resilience. Because democracy cannot thrive without the
-              rule of law, ensuring its enforcement is a key focus of BDF’s
-              work. This includes defending human and civil rights, pursuing
-              strategic litigation, combating prejudice and discrimination, and
-              undertaking similar efforts.
-            </p>
+            <p className="mt-6 text-base/7 text-gray-600">{aboutData.text}</p>
           </div>
 
           <div className="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
