@@ -127,9 +127,10 @@ export async function getDonation(locale) {
       subtitle: item.fields.donationSubtitle,
       listTitle: item.fields.donationListTitle,
       listItem: item.fields.donationListItem,
+      campaign: item.fields.donationCampaign,
     };
   } catch (error) {
-    console.error("Ошибка при получении публикаций:", error);
+    console.error("Ошибка при получении donation:", error);
     return null;
   }
 }

@@ -10,6 +10,7 @@ import { getManagingDirector } from "../../lib/contentful.js";
 import Director from "@/components/Director.js";
 import { getPublications } from "../../lib/contentful.js";
 import Author from "@/components/Author.js";
+import { getDonation } from "../../lib/contentful.js";
 import Donate from "@/components/Donate.js";
 import Contact from "@/components/Contact.js";
 import { getFooter } from "../../lib/contentful.js";
@@ -28,6 +29,7 @@ export default async function MainPage({ params }) {
   const directorData = await getManagingDirector(locale);
   const authorData = await getPublications(locale);
   const footerData = await getFooter(locale);
+  const donateData = await getDonation(locale);
 
   return (
     <div>
@@ -39,7 +41,7 @@ export default async function MainPage({ params }) {
         <About aboutData={aboutData} />
         <Director directorData={directorData} />
         <Author authorData={authorData} />
-        <Donate />
+        <Donate donateData={donateData} />
         <Contact />
       </main>
 
