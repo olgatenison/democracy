@@ -13,7 +13,7 @@ export default function Director({ directorData }) {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 underline hover:text-blue-800 transition-colors"
+            className="text-blue-900 font-bold hover:text-black transition-colors hover:bg-[linear-gradient(140deg,_#fcfcea_0%,_#e8f4ef_48.5%,_#d3ecf5_100%)] px-1"
           >
             {children}
           </a>
@@ -62,7 +62,7 @@ export default function Director({ directorData }) {
                 <li>
                   <a
                     href={directorData.telegramLink}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 text-gray-500 hover:bg-blue-100 hover:text-blue-600 transition border-2"
+                    className="inline-flex h-10 w-10 items-center  justify-center rounded-full bg-gray-0 text-gray-500 hover:bg-[linear-gradient(140deg,_#fcfcea_0%,_#e8f4ef_48.5%,_#d3ecf5_100%)]  hover:text-black transition border-2"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -73,7 +73,7 @@ export default function Director({ directorData }) {
                 <li>
                   <a
                     href={directorData.youtubeLink}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 text-gray-500 hover:bg-red-100 hover:text-red-600 transition border-2"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 text-gray-500 hover:bg-[linear-gradient(140deg,_#fcfcea_0%,_#e8f4ef_48.5%,_#d3ecf5_100%)]  hover:text-black transition border-2"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

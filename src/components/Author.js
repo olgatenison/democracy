@@ -21,14 +21,14 @@ export default function Author({ authorData }) {
                 href={article.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex w-full items-start justify-between text-left text-gray-900 py-4 hover:text-blue-800 transition sm:flex-row flex-col"
+                className="group flex w-full items-start justify-between text-left text-gray-900 py-4 hover:text-blue-900 transition sm:flex-row flex-col hover:bg-[linear-gradient(140deg,_#fcfcea_0%,_#e8f4ef_48.5%,_#d3ecf5_100%)] -mx-10 px-10"
               >
                 <p className="text-base/7 font-semibold sm:max-w-1/2">
                   {article.name}
                 </p>
                 <div className="flex items-center gap-2">
                   <p>{article.press}</p>
-                  <ArrowUpRight className="h-5 w-5 text-gray-500 group-hover:text-blue-800 transition-transform group-hover:translate-x-1" />
+                  <ArrowUpRight className="h-5 w-5 text-gray-500 group-hover:text-blue-900 transition-transform group-hover:translate-x-1" />
                 </div>
               </a>
             ))}

@@ -41,21 +41,22 @@ export default function Donate({ donateData }) {
   console.log(donateData);
   return (
     <div className="mx-auto max-w-7xl px-6 pt-24 lg:px-8">
-      <div className="mx-auto max-w-2xl ">
+      <div className="mx-auto max-w-2xl">
         <h2 className="text-pretty text-4xl font-semibold tracking-tight text-blue-900 sm:text-5xl text-center">
           {donateData.title}
         </h2>
-        <p className="mt-6 text-lg/8 text-gray-600 text-center max-w-lg mx-auto">
+
+        <p className="mt-6 text-lg text-gray-600  max-w-lg mx-auto">
           {donateData.subtitle}
         </p>
-        <div className="mt-7 mx-auto w-fit">
-          <p className="font-semibold text-gray-900">{donateData.listTitle}</p>
+
+        <div className="mt-7 mx-auto w-fit text-lg ">
+          <p className="font-semibold text-gray-900 mb-5">
+            {donateData.listTitle}
+          </p>
           <ul className="text-gray-600 max-w-lg">
             {uniqueItems.map((item, index) => (
-              <li
-                key={index}
-                className="flex items-start gap-x-3 text-base/7 font-semibold "
-              >
+              <li key={index} className="flex items-start gap-x-3 ">
                 <div className="w-2 h-2 rounded-full flex-none bg-blue-900 mt-3" />
                 {item}
               </li>
@@ -63,6 +64,7 @@ export default function Donate({ donateData }) {
           </ul>
         </div>
       </div>
+
       <h3 className="text-pretty text-2xl font-semibold tracking-tight text-blue-900 sm:text-3xl text-center my-20">
         {donateData.campaign}
       </h3>
@@ -74,34 +76,47 @@ export default function Donate({ donateData }) {
         {team.map((person) => (
           <li
             key={person.id}
-            className="text-center  w-48 mt-3  text-sm/6 bg-gray-100 py-5 rounded-2xl"
+            className="text-center w-48 mt-3 text-sm py-5 rounded-2xl bg-gray-200 hover:bg-[linear-gradient(140deg,_#fcfcea_0%,_#e8f4ef_48.5%,_#d3ecf5_100%)]"
           >
             <img
               alt=""
               src={person.imageUrl}
               className="mx-auto size-24 rounded-full -mt-16"
             />
+
             <h3 className="mt-6 text-base/7 font-semibold tracking-tight text-gray-900">
               {person.name}
             </h3>
-            <p className="text-sm/6 text-gray-600">{person.role}</p>
-            <div className="flex gap-4 items-center justify-center pt-3">
+            <p className="text-sm text-gray-600">{person.role}</p>
+            <div className="flex gap-3 items-center justify-center pt-3">
+              {/* Bitcoin */}
+
               <a
                 href="https://www.blockchain.com/btc/address/your-bitcoin-address"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0  hover:bg-[#c5e2ed]  transition "
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 text-gray-500 hover:bg-orange-100 hover:text-orange-600 transition border-2 focus:outline-none focus:ring-2 focus:ring-orange-300"
               >
                 <span className="sr-only">Bitcoin</span>
-                <img src="/b.svg" alt="Bitcoin" className="h-5 w-5" />
+                <img
+                  src="/b.svg"
+                  alt="Bitcoin"
+                  className="h-7 w-7 opacity-40 hover:opacity-100 focus:opacity-100"
+                />
               </a>
+
               <a
-                href="https://www.blockchain.com/btc/address/your-bitcoin-address"
+                href="https://www.paypal.com/donate/your-paypal-id"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 hover:bg-[#c5e2ed]   transition "
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-6 h-6 inline-block hover:opacity-80"
               >
-                <img src="/pp.svg" alt="Bitcoin" className="w-full h-full" />
+                <span className="sr-only">PayPal</span>
+                <img
+                  src="/pp.svg"
+                  alt="PayPal"
+                  className="h-7 w-7 opacity-40 hover:opacity-100 focus:opacity-100"
+                />
               </a>
             </div>
           </li>
