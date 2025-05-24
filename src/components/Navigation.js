@@ -21,18 +21,26 @@ export default async function Navigation() {
         </div>
 
         {/* Navigation Controls */}
-        <div className="w-full flex justify-end gap-6">
+        <div className="w-full flex justify-end gap-6 ">
           <div>
-            <p>{t("about")}</p>
+            <p className="hover:bg-[#e1e7f8] p-2 rounded-2xl hover:text-blue-900">
+              {t("about")}
+            </p>
           </div>
           <div>
-            <p>{t("director")}</p>
+            <p className="hover:bg-[#e1e7f8] p-2 rounded-2xl hover:text-blue-900">
+              {t("director")}
+            </p>
           </div>
           <div>
-            <p>{t("donate")}</p>
+            <p className=" p-2 rounded-2xl hover:text-blue-900 hover:bg-[#e1e7f8]">
+              {t("donate")}
+            </p>
           </div>
           <div>
-            <p>{t("contacts")}</p>
+            <p className="hover:bg-[#e1e7f8] p-2 rounded-2xl hover:text-blue-900">
+              {t("contacts")}
+            </p>
           </div>
           <LocalSwitcher />
         </div>

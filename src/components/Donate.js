@@ -76,12 +76,12 @@ export default function Donate({ donateData }) {
         {team.map((person) => (
           <li
             key={person.id}
-            className="text-center w-48 mt-3 text-sm py-5 rounded-2xl bg-gray-200 hover:bg-[linear-gradient(140deg,_#fcfcea_0%,_#e8f4ef_48.5%,_#d3ecf5_100%)]"
+            className="text-center w-48 mt-3 text-sm py-5 rounded-2xl bg-gray-200 hover:bg-[#e1e7f8]"
           >
             <img
               alt=""
               src={person.imageUrl}
-              className="mx-auto size-24 rounded-full -mt-16"
+              className="mx-auto size-24 rounded-full -mt-16 "
             />
 
             <h3 className="mt-6 text-base/7 font-semibold tracking-tight text-gray-900">
@@ -93,7 +93,7 @@ export default function Donate({ donateData }) {
 
               <a
                 href="https://www.blockchain.com/btc/address/your-bitcoin-address"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0  hover:bg-[#c5e2ed]  transition "
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0  hover:bg-[#c7d5f9]  transition "
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -107,7 +107,7 @@ export default function Donate({ donateData }) {
 
               <a
                 href="https://www.paypal.com/donate/your-paypal-id"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 hover:bg-[#c5e2ed]   transition "
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 hover:bg-[#c7d5f9]   transition "
                 target="_blank"
                 rel="noopener noreferrer"
               >

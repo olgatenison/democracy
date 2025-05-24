@@ -1,5 +1,4 @@
 export default function Hero({ heroData }) {
-  
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-7xl  sm:px-6 lg:px-8">
@@ -21,12 +20,12 @@ export default function Hero({ heroData }) {
               cx={512}
               cy={512}
               fill="url(#827591b1-ce8c-4110-b064-7cb85a0b1217)"
-              fillOpacity="0.7"
+              fillOpacity="0.8"
             />
             <defs>
               <radialGradient id="827591b1-ce8c-4110-b064-7cb85a0b1217">
-                <stop stopColor="#7775D6" />
-                <stop offset={1} stopColor="#E935C1" />
+                <stop stopColor="#1b19a5" />
+                <stop offset={1} stopColor="#dd1d30" />
               </radialGradient>
             </defs>
           </svg>

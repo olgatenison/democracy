@@ -12,7 +12,7 @@ export default function Contact() {
         </div>
 
         <div className="">
-          <div className="rounded-2xl bg-gray-100 hover:bg-[linear-gradient(140deg,_#fcfcea_0%,_#e8f4ef_48.5%,_#d3ecf5_100%)] p-10">
+          <div className="rounded-2xl bg-gray-100 hover:bg-[#e1e7f8] p-10">
             <h3 className="text-base/7 font-semibold text-gray-900">
               Collaborate
             </h3>
