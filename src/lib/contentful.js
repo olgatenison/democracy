@@ -109,7 +109,6 @@ export async function getPublications(locale) {
     return null;
   }
 }
-
 export async function getDonation(locale) {
   const contentfulLocale = locale === "en" ? "en-US" : "ru";
 
@@ -122,18 +121,58 @@ export async function getDonation(locale) {
 
     const item = response.items[0];
 
+    const campaignList = item.fields.donationCampaignList || [];
+
+    const campaign = campaignList.map((entry) => ({
+      id: entry.sys.id,
+      title: entry.fields.title,
+      subtitle: entry.fields.subtitle,
+      donationLink: entry.fields.donationLink,
+      donationLinkBit1: entry.fields.donationLinkBit1,
+      image: entry.fields.image?.fields?.file?.url
+        ? "https:" + entry.fields.image.fields.file.url
+        : null,
+    }));
+
     return {
       title: item.fields.donationTitle,
       subtitle: item.fields.donationSubtitle,
       listTitle: item.fields.donationListTitle,
+
       listItem: item.fields.donationListItem,
-      campaign: item.fields.donationCampaign,
+      campaignMainTitle: item.fields.donationCampaign,
+      campaign, // теперь массив карточек
     };
   } catch (error) {
     console.error("Ошибка при получении donation:", error);
     return null;
   }
 }
+
+// export async function getDonation(locale) {
+//   const contentfulLocale = locale === "en" ? "en-US" : "ru";
+
+//   try {
+//     const response = await client.getEntries({
+//       content_type: "donation",
+//       locale: contentfulLocale,
+//       include: 2,
+//     });
+
+//     const item = response.items[0];
+
+//     return {
+//       title: item.fields.donationTitle,
+//       subtitle: item.fields.donationSubtitle,
+//       listTitle: item.fields.donationListTitle,
+//       listItem: item.fields.donationListItem,
+//       campaign: item.fields.donationCampaign,
+//     };
+//   } catch (error) {
+//     console.error("Ошибка при получении donation:", error);
+//     return null;
+//   }
+// }
 
 // Функция для получения данных футера
 export async function getFooter(locale) {

@@ -66,22 +66,81 @@ export default function Donate({ donateData }) {
       </div>
 
       <h3 className="text-pretty text-2xl font-semibold tracking-tight text-blue-900 sm:text-3xl text-center my-20">
-        {donateData.campaign}
+        {donateData.campaignMainTitle}
       </h3>
 
       <ul
         role="list"
         className="mx-auto mt-10  max-w-7xl flex gap-5 flex-wrap justify-center pb-20"
       >
+        {donateData.campaign?.map((card) => (
+          <li
+            key={card.id}
+            className="group text-center w-48 mt-3 text-sm p-5 rounded-2xl bg-gray-200 hover:bg-[#e1e7f8]"
+          >
+            {card.image && (
+              <img
+                alt=""
+                src={card.image}
+                className="mx-auto size-24 rounded-full -mt-16 transition-transform duration-300 group-hover:scale-105"
+              />
+            )}
+
+            <h3 className="mt-6 text-base/7 font-semibold tracking-tight text-gray-900">
+              {card.title}
+            </h3>
+            <p className="text-sm text-gray-600">{card.subtitle}</p>
+
+            <div className="flex gap-3 items-center justify-center pt-3">
+              {card.donationLinkBit1 && (
+                <a
+                  href={card.donationLinkBit1}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 hover:bg-[#c7d5f9] transition"
+                >
+                  <img
+                    src="/b.svg"
+                    alt="Bitcoin"
+                    className="h-7 w-7 opacity-40 hover:opacity-100"
+                  />
+                </a>
+              )}
+              {card.donationLink && (
+                <a
+                  href={card.donationLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 hover:bg-[#c7d5f9] transition"
+                >
+                  <img
+                    src="/pp.svg"
+                    alt="PayPal"
+                    className="h-7 w-7 opacity-40 hover:opacity-100"
+                  />
+                </a>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+{
+  /* <ul
+        role="list"
+        className="mx-auto mt-10  max-w-7xl flex gap-5 flex-wrap justify-center pb-20"
+      >
         {team.map((person) => (
           <li
             key={person.id}
-            className="text-center w-48 mt-3 text-sm py-5 rounded-2xl bg-gray-200 hover:bg-[#e1e7f8]"
+            className="group text-center w-48 mt-3 text-sm py-5 rounded-2xl bg-gray-200 hover:bg-[#e1e7f8]"
           >
             <img
               alt=""
               src={person.imageUrl}
-              className="mx-auto size-24 rounded-full -mt-16 "
+              className="mx-auto size-24 rounded-full -mt-16 transition-transform duration-300 group-hover:scale-105"
             />
 
             <h3 className="mt-6 text-base/7 font-semibold tracking-tight text-gray-900">
@@ -89,7 +148,7 @@ export default function Donate({ donateData }) {
             </h3>
             <p className="text-sm text-gray-600">{person.role}</p>
             <div className="flex gap-3 items-center justify-center pt-3">
-              {/* Bitcoin */}
+            
 
               <a
                 href="https://www.blockchain.com/btc/address/your-bitcoin-address"
@@ -121,7 +180,5 @@ export default function Donate({ donateData }) {
             </div>
           </li>
         ))}
-      </ul>
-    </div>
-  );
+      </ul> */
 }
