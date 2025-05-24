@@ -4,6 +4,7 @@ import React from "react";
 import { Link } from "@/i18n/navigation.js";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import LocalSwitcher from "./LocalSwitcher";
 
 export default async function Navigation() {
   const t = await getTranslations("Navigation");
@@ -33,7 +34,7 @@ export default async function Navigation() {
           <div>
             <p>{t("contacts")}</p>
           </div>
-          {/* <LocalSwitcher /> */}
+          <LocalSwitcher />
         </div>
       </div>
     </nav>
