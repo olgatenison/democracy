@@ -38,34 +38,36 @@ const team = [
 
 export default function Donate({ donateData }) {
   const uniqueItems = [...new Set(donateData.listItem)];
-  console.log(donateData);
+  // console.log(donateData);
   return (
-    <div className="mx-auto max-w-7xl px-6 pt-24 lg:px-8">
-      <div className="mx-auto max-w-2xl">
-        <h2 className="text-pretty text-4xl font-semibold tracking-tight text-blue-900 sm:text-5xl text-center">
+    <div className="mx-auto max-w-7xl px-6 pt-24 lg:px-8 border-b-2 border-blue-900">
+      <div className="mx-auto max-w-4xl">
+        <h2 className="text-pretty text-4xl font-semibold tracking-tight text-blue-900 sm:text-5xl font-garamond [font-variant:small-caps] pb-8 border-b-2">
           {donateData.title}
         </h2>
-
-        <p className="mt-6 text-lg text-gray-600  max-w-lg mx-auto">
-          {donateData.subtitle}
-        </p>
-
-        <div className="mt-7 mx-auto w-fit text-lg ">
-          <p className="font-semibold text-gray-900 mb-5">
-            {donateData.listTitle}
-          </p>
-          <ul className="text-gray-600 max-w-lg">
-            {uniqueItems.map((item, index) => (
-              <li key={index} className="flex items-start gap-x-3 ">
-                <div className="w-2 h-2 rounded-full flex-none bg-blue-900 mt-3" />
-                {item}
-              </li>
-            ))}
-          </ul>
+        <div className="flex gap-8 flex-row justify-between">
+          <div>
+            <p className="mt-6 text-lg text-gray-600 max-w-72 mx-auto">
+              {donateData.subtitle}
+            </p>
+          </div>
+          <div className="mt-7 mx-auto w-fit text-lg ">
+            <p className="font-semibold text-gray-900 mb-5">
+              {donateData.listTitle}
+            </p>
+            <ul className="text-gray-600 ">
+              {uniqueItems.map((item, index) => (
+                <li key={index} className="flex items-start gap-x-3 ">
+                  <div className="w-2 h-2 rounded-full flex-none bg-blue-900 mt-3" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
 
-      <h3 className="text-pretty text-2xl font-semibold tracking-tight text-blue-900 sm:text-3xl text-center my-20">
+      <h3 className="text-pretty text-2xl font-semibold tracking-tight text-blue-900 sm:text-4xl my-20 text-center font-garamond [font-variant:small-caps] pb-12 ">
         {donateData.campaignMainTitle}
       </h3>
 
@@ -76,11 +78,11 @@ export default function Donate({ donateData }) {
         {donateData.campaign?.map((card) => (
           <li
             key={card.id}
-            className="group text-center w-48 mt-3 text-sm p-5 rounded-2xl bg-gray-200 hover:bg-[#e1e7f8]"
+            className="group text-center w-48 mt-3 text-sm p-3 rounded-2xl bg-gray-200 hover:bg-[#e1e7f8]"
           >
             {card.image && (
               <img
-                alt=""
+                alt={card.title}
                 src={card.image}
                 className="mx-auto size-24 rounded-full -mt-16 transition-transform duration-300 group-hover:scale-105"
               />
@@ -97,7 +99,7 @@ export default function Donate({ donateData }) {
                   href={card.donationLinkBit1}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 hover:bg-[#c7d5f9] transition"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 hover:bg-[#c7d5f9] transition "
                 >
                   <img
                     src="/b.svg"
