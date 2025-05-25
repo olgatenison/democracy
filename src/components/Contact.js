@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <div className="bg-white py-20 px-6 lg:px-10">
+    <section id="contacts" className="bg-white py-20 px-6 lg:px-10">
       <div className="flex mx-auto max-w-3xl justify-between">
         <div>
           <h2 className="text-pretty text-4xl font-semibold tracking-tight text-gray-900 font-playfair">
@@ -40,6 +40,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

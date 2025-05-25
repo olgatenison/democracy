@@ -40,7 +40,10 @@ export default function Donate({ donateData }) {
   const uniqueItems = [...new Set(donateData.listItem)];
   // console.log(donateData);
   return (
-    <div className="mx-auto max-w-7xl px-6 pt-24 lg:px-8 border-b-2 border-blue-900">
+    <section
+      id="donate"
+      className="mx-auto max-w-7xl px-6 pt-24 lg:px-8 border-b-2 border-blue-900"
+    >
       <div className="mx-auto max-w-4xl">
         <h2 className="text-pretty text-4xl font-semibold tracking-tight text-blue-900 sm:text-5xl font-garamond [font-variant:small-caps] pb-8 border-b-2">
           {donateData.title}
@@ -126,7 +129,7 @@ export default function Donate({ donateData }) {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }
 {
