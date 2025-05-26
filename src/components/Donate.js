@@ -48,9 +48,9 @@ export default function Donate({ donateData }) {
         <h2 className="text-pretty text-4xl font-semibold tracking-tight text-blue-900 sm:text-5xl font-garamond [font-variant:small-caps] pb-8 border-b-2">
           {donateData.title}
         </h2>
-        <div className="flex gap-8 flex-row justify-between">
+        <div className="flex gap-12 flex-row justify-between">
           <div>
-            <p className="mt-6 text-lg text-gray-600 max-w-72 mx-auto">
+            <p className="mt-6 text-lg text-gray-600 max-w-96 mx-auto">
               {donateData.subtitle}
             </p>
           </div>
@@ -81,20 +81,21 @@ export default function Donate({ donateData }) {
         {donateData.campaign?.map((card) => (
           <li
             key={card.id}
-            className="group text-center w-48 mt-3 text-sm p-3 rounded-2xl bg-gray-200 hover:bg-[#e1e7f8]"
+            className="group flex flex-col justify-between text-center w-48 mt-3 text-sm p-3 rounded-2xl bg-gray-200 hover:bg-[#e1e7f8]"
           >
-            {card.image && (
-              <img
-                alt={card.title}
-                src={card.image}
-                className="mx-auto size-24 rounded-full -mt-16 transition-transform duration-300 group-hover:scale-105"
-              />
-            )}
-
-            <h3 className="mt-6 text-base/7 font-semibold tracking-tight text-gray-900">
-              {card.title}
-            </h3>
-            <p className="text-sm text-gray-600">{card.subtitle}</p>
+            <div>
+              {card.image && (
+                <img
+                  alt={card.title}
+                  src={card.image}
+                  className="mx-auto size-24 rounded-full -mt-16 transition-transform duration-300 group-hover:scale-105"
+                />
+              )}
+              <h3 className="mt-6 text-base/7 font-semibold tracking-tight text-gray-900">
+                {card.title}
+              </h3>
+              <p className="text-sm text-gray-600">{card.subtitle}</p>
+            </div>
 
             <div className="flex gap-3 items-center justify-center pt-3">
               {card.donationLinkBit1 && (
@@ -102,7 +103,7 @@ export default function Donate({ donateData }) {
                   href={card.donationLinkBit1}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 hover:bg-[#c7d5f9] transition "
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 hover:bg-[#c7d5f9] transition"
                 >
                   <img
                     src="/b.svg"

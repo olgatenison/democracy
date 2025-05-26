@@ -33,7 +33,7 @@ export default function Director({ directorData }) {
             {directorData.subtitle}
           </p>
         </div>
-        <article className="  xl:col-span-3">
+        <article className="xl:col-span-3">
           <div
             key={directorData.name}
             className="flex flex-col gap-10 py-12 first:pt-0 last:pb-0 sm:flex-row"
