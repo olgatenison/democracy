@@ -9,7 +9,7 @@ export default function Contact() {
             <h2 className="text-pretty text-4xl font-semibold tracking-tight  sm:text-5xl font-garamond [font-variant:small-caps] text-blue-900 border-b-2 pb-3 ">
               Contacts
             </h2>
-            {/* <ArrowUpRight className="h-10 w-10 text-blue-900 group-hover:text-blue-900 transition-transform group-hover:translate-x-1 mt-2" /> */}
+            <ArrowUpRight className="h-10 w-10 text-blue-900 group-hover:text-blue-900 transition-transform group-hover:translate-x-1 mt-2" />
           </div>
           <div className="mt-3  pb-8 space-y-1 text-sm/6 text-gray-600 ">
             <div>
