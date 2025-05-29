@@ -109,6 +109,7 @@ export async function getPublications(locale) {
     return null;
   }
 }
+
 export async function getDonation(locale) {
   const contentfulLocale = locale === "en" ? "en-US" : "ru";
 
@@ -149,32 +150,39 @@ export async function getDonation(locale) {
   }
 }
 
-// export async function getDonation(locale) {
-//   const contentfulLocale = locale === "en" ? "en-US" : "ru";
+export async function getContact(locale) {
+  const contentfulLocale = locale === "en" ? "en-US" : "ru";
 
-//   try {
-//     const response = await client.getEntries({
-//       content_type: "donation",
-//       locale: contentfulLocale,
-//       include: 2,
-//     });
+  try {
+    const response = await client.getEntries({
+      content_type: "contact",
+      locale: contentfulLocale,
+    });
 
-//     const item = response.items[0];
+    if (!response.items.length) {
+      console.warn(
+        `Не найдено записей для content_type: "contact" и locale: "${contentfulLocale}"`
+      );
+      return { contactData: null };
+    }
 
-//     return {
-//       title: item.fields.donationTitle,
-//       subtitle: item.fields.donationSubtitle,
-//       listTitle: item.fields.donationListTitle,
-//       listItem: item.fields.donationListItem,
-//       campaign: item.fields.donationCampaign,
-//     };
-//   } catch (error) {
-//     console.error("Ошибка при получении donation:", error);
-//     return null;
-//   }
-// }
+    const item = response.items[0];
 
-// Функция для получения данных футера
+    return {
+      contactTitle: item.fields.contactTitle,
+      emailTitle: item.fields.emailTitle,
+      emailText: item.fields.emailText,
+      addressTitle: item.fields.addressTitle,
+      addressFirstLine: item.fields.addressFirstLine,
+      addressSecondLine: item.fields.adressSecondLine, // исправьте ID в Contentful!
+      addressLink: item.fields.addressLink,
+    };
+  } catch (error) {
+    console.error("Ошибка при получении данных контакта:", error);
+    return { contactData: null };
+  }
+}
+
 export async function getFooter(locale) {
   const contentfulLocale = locale === "en" ? "en-US" : "ru"; // Локализация в зависимости от переданного параметра
 

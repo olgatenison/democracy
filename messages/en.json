@@ -2,6 +2,10 @@
   "LocaleSwitcher": {
     "label": "Change language"
   },
+  "LocaleLayout": {
+    "title": "Building Democracy Foundation",
+    "description": "Building Democracy Foundation"
+  },
 
   "MainPage": {
     "title": "About Us",

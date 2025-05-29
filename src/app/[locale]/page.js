@@ -1,6 +1,5 @@
 // app/[locale]/page.js
 import { setRequestLocale } from "next-intl/server";
-import { getTranslations } from "next-intl/server";
 import Navigation from "@/components/Navigation.js";
 import { getHero } from "../../lib/contentful.js";
 import Hero from "../../components/Hero.js";
@@ -12,13 +11,14 @@ import { getPublications } from "../../lib/contentful.js";
 import Author from "@/components/Author.js";
 import { getDonation } from "../../lib/contentful.js";
 import Donate from "@/components/Donate.js";
+import { getContact } from "../../lib/contentful.js";
 import Contact from "@/components/Contact.js";
 import { getFooter } from "../../lib/contentful.js";
 import Footer from "../../components/Footer";
+import { getTranslations } from "next-intl/server";
 
 export default async function MainPage({ params }) {
   const { locale } = await params;
-  // Устанавливаем локаль
   setRequestLocale(locale);
 
   // Загружаем переводы
@@ -30,6 +30,7 @@ export default async function MainPage({ params }) {
   const authorData = await getPublications(locale);
   const footerData = await getFooter(locale);
   const donateData = await getDonation(locale);
+  const contactData = await getContact(locale);
 
   return (
     <div>
@@ -42,7 +43,7 @@ export default async function MainPage({ params }) {
         <Director directorData={directorData} />
         <Author authorData={authorData} />
         <Donate donateData={donateData} />
-        <Contact />
+        <Contact contactData={contactData} />
       </main>
 
       {/* Футер */}

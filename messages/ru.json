@@ -1,5 +1,10 @@
 {
   "LocaleSwitcher": { "label": "Сменить язык" },
+  "LocaleLayout": {
+    "title": "Building Democracy Foundation",
+    "description": "Building Democracy Foundation"
+  },
+
   "MainPage": {
     "title": "О нас",
     "content": "Это содержание страницы \"О нас\" на русском.",

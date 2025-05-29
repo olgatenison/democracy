@@ -11,7 +11,7 @@ export default async function Navigation() {
 
   return (
     <nav className="mx-auto w-full max-w-7xl px-6 lg:px-8 py-3">
-      <div className="mx-auto flex items-center">
+      <div className="mx-auto flex items-center justify-between">
         {/* Logo */}
         <div>
           <Link href={{ pathname: "/" }}>
@@ -21,10 +21,10 @@ export default async function Navigation() {
         </div>
 
         {/* Navigation Controls */}
-        <div className="w-full flex justify-end gap-6 ">
+        <div className="w-full flex justify-end  gap-3 md:gap-5 md:text-base text-[12px]/4">
           <a
             href="#about"
-            className="hover:bg-[#e1e7f8] p-2 rounded-2xl hover:text-blue-900"
+            className="hover:bg-[#e1e7f8] p-2 rounded-2xl hover:text-blue-900 w-fit"
           >
             {t("about")}
           </a>
