@@ -3,13 +3,13 @@ import { ArrowUpRight } from "lucide-react";
 export default function Author({ authorData }) {
   return (
     <>
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto  px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <div>
             <h2 className=" text-4xl font-semibold text-blue-900 sm:text-6xl  text-center font-garamond [font-variant:small-caps] pb-8 border-b-2">
               {authorData.title}
             </h2>
-            <p className="mt-8 text-lg font-medium text-gray-500 sm:max-w-md sm:text-xl/8 lg:max-w-full md:text-center text-left">
+            <p className="mt-8 text-lg font-medium text-gray-500  sm:text-xl/8 lg:max-w-full text-center mx-auto ">
               {authorData.subtitle}
             </p>
           </div>

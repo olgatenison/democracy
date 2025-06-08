@@ -56,11 +56,11 @@ export async function getManagingDirector(locale) {
 
   try {
     const response = await client.getEntries({
-      content_type: "managingDirector", // 👈 название content type
+      content_type: "managingDirector",
       locale: contentfulLocale,
     });
 
-    const item = response.items[0]; // Предполагаем, что запись одна
+    const item = response.items[0];
 
     return {
       title: item.fields.directorTitle,
@@ -72,9 +72,6 @@ export async function getManagingDirector(locale) {
         : item.fields.photo.fields.file.url,
       textFirst: item.fields.directorTextFirst,
       textSecond: item.fields.directorTextSecond,
-      textThird: item.fields.directorTextThird,
-      telegramLink: item.fields.directorTelegramLink,
-      youtubeLink: item.fields.directorYoutubeLink,
     };
   } catch (error) {
     console.error("Ошибка при получении данных директора:", error);
@@ -122,7 +119,19 @@ export async function getDonation(locale) {
 
     const item = response.items[0];
 
+    const mainCampaignList = item.fields.donationCampaignListMain || [];
     const campaignList = item.fields.donationCampaignList || [];
+
+    const mainCampaign = mainCampaignList.map((entry) => ({
+      id: entry.sys.id,
+      title: entry.fields.title,
+      subtitle: entry.fields.subtitle,
+      donationLink: entry.fields.donationLink,
+      donationLinkBit1: entry.fields.donationLinkBit1,
+      image: entry.fields.image?.fields?.file?.url
+        ? "https:" + entry.fields.image.fields.file.url
+        : null,
+    }));
 
     const campaign = campaignList.map((entry) => ({
       id: entry.sys.id,
@@ -139,10 +148,12 @@ export async function getDonation(locale) {
       title: item.fields.donationTitle,
       subtitle: item.fields.donationSubtitle,
       listTitle: item.fields.donationListTitle,
-
       listItem: item.fields.donationListItem,
+      extraSubtitle: item.fields.extraSubtitle,
+
       campaignMainTitle: item.fields.donationCampaign,
-      campaign, // теперь массив карточек
+      mainCampaign,
+      campaign,
     };
   } catch (error) {
     console.error("Ошибка при получении donation:", error);
