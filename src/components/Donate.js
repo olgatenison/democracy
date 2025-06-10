@@ -94,7 +94,7 @@ export default function Donate({ donateData }) {
         ))}
       </ul>
 
-      <p className=" text-lg text-gray-600 md:max-w-xl mx-auto text-center mb-20">
+      <p className=" text-lg md:max-w-xl mx-auto text-center mb-20 text-blue-900 font-bold">
         {donateData.extraSubtitle}
       </p>
       <ul
