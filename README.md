@@ -13,7 +13,7 @@
 
 ## 🚀 Getting Started
 
-To learn more about our mission and activities, visit [buildingdemocracy.foundation](https://www.buildingdemocracy.foundation).
+To learn more about our mission and activities, visit [buildingdemocracy.foundation](https://www.buildingdemocracy.foundation/en).
 
 ## 📬 Get Involved
 
