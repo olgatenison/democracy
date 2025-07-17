@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Building Democracy Foundation
 
-## Getting Started
+**Author:** Olga Tenison  
 
-First, run the development server:
+**Building Democracy Foundation** is a non-profit initiative focused on strengthening democratic institutions and empowering communities across the globe. The foundation promotes civic education, supports grassroots participation, and fosters inclusive governance systems that respond to citizens’ needs.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌟 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🗳️ **Civic Education**: Programs designed to educate and inspire active citizenship.
+- 🌍 **Global Outreach**: Supporting democratic initiatives in local and international communities.
+- 🤝 **Partnerships**: Collaborations with civil society organizations, governments, and educators.
+- 📢 **Advocacy**: Promoting transparency, accountability, and human rights.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🚀 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To learn more about our mission and activities, visit [buildingdemocracy.foundation](https://www.buildingdemocracy.foundation).
 
-## Learn More
+## 📬 Get Involved
 
-To learn more about Next.js, take a look at the following resources:
+We invite you to join us in building stronger democracies:  
+- 🌱 **Volunteer** with our programs  
+- 💡 **Partner** with us on initiatives  
+- 💖 **Support** through donations  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📌 About
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Location**: Richmond, VA, USA  
+- **Registration**: EIN 99‑2540715  
+- **Website**: [buildingdemocracy.foundation](https://www.buildingdemocracy.foundation)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2025 Olga Tenison. All rights reserved.
