@@ -23,12 +23,12 @@ const ebGaramond = EB_Garamond({
 });
 
 export async function generateMetadata({ params }) {
-  const locale = params.locale;
+  const locale = (await params)?.locale || "en"; // 🛡 fallback
   const t = await getTranslations({ locale, namespace: "LocaleLayout" });
 
   return {
-    title: t("title"),
-    description: t("description"),
+    title: t("title") || "Default Title",
+    description: t("description") || "Default description",
     robots: { index: true, follow: true },
   };
 }
