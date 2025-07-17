@@ -1,3 +1,4 @@
+// lib/contentful.js
 import { createClient } from "contentful";
 
 export const client = createClient({
@@ -5,28 +6,15 @@ export const client = createClient({
   accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN,
 });
 
-// Универсальный wrapper для ISR
-async function fetchWithRevalidate(promise) {
-  const result = await promise;
-  // ISR через fetchOptions в Next.js App Router
-  return JSON.parse(JSON.stringify(result), (_, value) =>
-    typeof value === "object" && value !== null ? value : value
-  );
-}
-
 export async function getHero(locale) {
   const contentfulLocale = locale === "en" ? "en-US" : "ru";
 
   try {
-    const response = await fetchWithRevalidate(
-      client.getEntries({
-        content_type: "hero",
-        locale: contentfulLocale,
-        include: 2,
-        // ISR - обновление каждые 60 секунд
-        next: { revalidate: 60 },
-      })
-    );
+    const response = await client.getEntries({
+      content_type: "hero",
+      locale: contentfulLocale,
+      include: 2,
+    });
 
     const item = response.items[0];
 
@@ -35,7 +23,7 @@ export async function getHero(locale) {
       subtitle: item.fields.heroSubtitle,
     };
   } catch (error) {
-    console.error("Ошибка при получении Hero:", error);
+    console.error("Ошибка при получении в Герое:", error);
     return null;
   }
 }
@@ -44,14 +32,11 @@ export async function getAbout(locale) {
   const contentfulLocale = locale === "en" ? "en-US" : "ru";
 
   try {
-    const response = await fetchWithRevalidate(
-      client.getEntries({
-        content_type: "about",
-        locale: contentfulLocale,
-        include: 2,
-        next: { revalidate: 60 },
-      })
-    );
+    const response = await client.getEntries({
+      content_type: "about",
+      locale: contentfulLocale,
+      include: 2, // подтягиваем связанные статьи
+    });
 
     const item = response.items[0];
 
@@ -61,7 +46,7 @@ export async function getAbout(locale) {
       text: item.fields.aboutText,
     };
   } catch (error) {
-    console.error("Ошибка при получении About:", error);
+    console.error("Ошибка при получении о нас:", error);
     return null;
   }
 }
@@ -70,13 +55,10 @@ export async function getManagingDirector(locale) {
   const contentfulLocale = locale === "en" ? "en-US" : "ru";
 
   try {
-    const response = await fetchWithRevalidate(
-      client.getEntries({
-        content_type: "managingDirector",
-        locale: contentfulLocale,
-        next: { revalidate: 60 },
-      })
-    );
+    const response = await client.getEntries({
+      content_type: "managingDirector",
+      locale: contentfulLocale,
+    });
 
     const item = response.items[0];
 
@@ -92,7 +74,7 @@ export async function getManagingDirector(locale) {
       textSecond: item.fields.directorTextSecond,
     };
   } catch (error) {
-    console.error("Ошибка при получении Managing Director:", error);
+    console.error("Ошибка при получении данных директора:", error);
     return null;
   }
 }
@@ -101,14 +83,11 @@ export async function getPublications(locale) {
   const contentfulLocale = locale === "en" ? "en-US" : "ru";
 
   try {
-    const response = await fetchWithRevalidate(
-      client.getEntries({
-        content_type: "publications",
-        locale: contentfulLocale,
-        include: 2,
-        next: { revalidate: 60 },
-      })
-    );
+    const response = await client.getEntries({
+      content_type: "publications",
+      locale: contentfulLocale,
+      include: 2, // подтягиваем связанные статьи
+    });
 
     const item = response.items[0];
 
@@ -123,7 +102,7 @@ export async function getPublications(locale) {
       })),
     };
   } catch (error) {
-    console.error("Ошибка при получении Publications:", error);
+    console.error("Ошибка при получении публикаций:", error);
     return null;
   }
 }
@@ -132,14 +111,11 @@ export async function getDonation(locale) {
   const contentfulLocale = locale === "en" ? "en-US" : "ru";
 
   try {
-    const response = await fetchWithRevalidate(
-      client.getEntries({
-        content_type: "donation",
-        locale: contentfulLocale,
-        include: 2,
-        next: { revalidate: 60 },
-      })
-    );
+    const response = await client.getEntries({
+      content_type: "donation",
+      locale: contentfulLocale,
+      include: 2,
+    });
 
     const item = response.items[0];
 
@@ -174,12 +150,13 @@ export async function getDonation(locale) {
       listTitle: item.fields.donationListTitle,
       listItem: item.fields.donationListItem,
       extraSubtitle: item.fields.extraSubtitle,
+
       campaignMainTitle: item.fields.donationCampaign,
       mainCampaign,
       campaign,
     };
   } catch (error) {
-    console.error("Ошибка при получении Donation:", error);
+    console.error("Ошибка при получении donation:", error);
     return null;
   }
 }
@@ -188,17 +165,14 @@ export async function getContact(locale) {
   const contentfulLocale = locale === "en" ? "en-US" : "ru";
 
   try {
-    const response = await fetchWithRevalidate(
-      client.getEntries({
-        content_type: "contact",
-        locale: contentfulLocale,
-        next: { revalidate: 60 },
-      })
-    );
+    const response = await client.getEntries({
+      content_type: "contact",
+      locale: contentfulLocale,
+    });
 
     if (!response.items.length) {
       console.warn(
-        `Не найдено записей для Contact с locale: ${contentfulLocale}`
+        `Не найдено записей для content_type: "contact" и locale: "${contentfulLocale}"`
       );
       return { contactData: null };
     }
@@ -211,27 +185,25 @@ export async function getContact(locale) {
       emailText: item.fields.emailText,
       addressTitle: item.fields.addressTitle,
       addressFirstLine: item.fields.addressFirstLine,
-      addressSecondLine: item.fields.adressSecondLine,
+      addressSecondLine: item.fields.adressSecondLine, // исправьте ID в Contentful!
       addressLink: item.fields.addressLink,
     };
   } catch (error) {
-    console.error("Ошибка при получении Contact:", error);
+    console.error("Ошибка при получении данных контакта:", error);
     return { contactData: null };
   }
 }
 
 export async function getFooter(locale) {
-  const contentfulLocale = locale === "en" ? "en-US" : "ru";
+  const contentfulLocale = locale === "en" ? "en-US" : "ru"; // Локализация в зависимости от переданного параметра
 
   try {
-    const response = await fetchWithRevalidate(
-      client.getEntries({
-        content_type: "siteSettings",
-        locale: contentfulLocale,
-        next: { revalidate: 60 },
-      })
-    );
+    const response = await client.getEntries({
+      content_type: "siteSettings", // Убедитесь, что это правильный тип контента в Contentful
+      locale: contentfulLocale, // Указываем локаль
+    });
 
+    // Получаем данные футера и подставляем их
     return response.items.map((item) => ({
       footerText: item.fields.footerText,
       contactEmail: item.fields.contactEmail,
@@ -239,7 +211,7 @@ export async function getFooter(locale) {
       cryptoInfo: item.fields.cryptoInfo,
     }));
   } catch (error) {
-    console.error("Ошибка при получении Footer:", error);
-    return [];
+    console.error("Ошибка при получении данных футера:", error);
+    return []; // Возвращаем пустой массив в случае ошибки
   }
 }
