@@ -97,62 +97,64 @@ export default function Donate({ donateData }) {
       <p className=" text-lg md:max-w-xl mx-auto text-center mb-20 text-blue-900 font-bold">
         {donateData.extraSubtitle}
       </p>
-      <ul
-        role="list"
-        className="mx-auto mt-10  max-w-7xl flex gap-5 flex-wrap justify-center md:pb-20"
-      >
-        {donateData.campaign?.map((card) => (
-          <li
-            key={card.id}
-            className="group flex flex-col justify-between text-center w-48 mt-3 text-sm p-3 rounded-2xl bg-gray-200 hover:bg-[#e1e7f8] mb-12"
-          >
-            <div>
-              {card.image && (
-                <img
-                  alt={card.title}
-                  src={card.image}
-                  className="mx-auto size-24 rounded-full -mt-16 transition-transform duration-300 group-hover:scale-105"
-                />
-              )}
-              <h3 className="mt-6 text-base/7 font-semibold tracking-tight text-gray-900">
-                {card.title}
-              </h3>
-              <p className="text-sm text-gray-600">{card.subtitle}</p>
-            </div>
+      {donateData.campaign?.length > 0 && (
+        <ul
+          role="list"
+          className="mx-auto mt-10 max-w-7xl flex gap-5 flex-wrap justify-center md:pb-20"
+        >
+          {donateData.campaign.map((card) => (
+            <li
+              key={card.id}
+              className="group flex flex-col justify-between text-center w-48 mt-3 text-sm p-3 rounded-2xl bg-gray-200 hover:bg-[#e1e7f8] mb-12"
+            >
+              <div>
+                {card.image && (
+                  <img
+                    alt={card.title}
+                    src={card.image}
+                    className="mx-auto size-24 rounded-full -mt-16 transition-transform duration-300 group-hover:scale-105"
+                  />
+                )}
+                <h3 className="mt-6 text-base/7 font-semibold tracking-tight text-gray-900">
+                  {card.title}
+                </h3>
+                <p className="text-sm text-gray-600">{card.subtitle}</p>
+              </div>
 
-            <div className="flex gap-3 items-center justify-center pt-3">
-              {card.donationLinkBit1 && (
-                <a
-                  href={card.donationLinkBit1}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 hover:bg-[#c7d5f9] transition"
-                >
-                  <img
-                    src="/b.svg"
-                    alt="Bitcoin"
-                    className="h-7 w-7 opacity-40 hover:opacity-100"
-                  />
-                </a>
-              )}
-              {card.donationLink && (
-                <a
-                  href={card.donationLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 hover:bg-[#c7d5f9] transition"
-                >
-                  <img
-                    src="/pp.svg"
-                    alt="PayPal"
-                    className="h-7 w-7 opacity-40 hover:opacity-100"
-                  />
-                </a>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
+              <div className="flex gap-3 items-center justify-center pt-3">
+                {card.donationLinkBit1 && (
+                  <a
+                    href={card.donationLinkBit1}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 hover:bg-[#c7d5f9] transition"
+                  >
+                    <img
+                      src="/b.svg"
+                      alt="Bitcoin"
+                      className="h-7 w-7 opacity-40 hover:opacity-100"
+                    />
+                  </a>
+                )}
+                {card.donationLink && (
+                  <a
+                    href={card.donationLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-0 hover:bg-[#c7d5f9] transition"
+                  >
+                    <img
+                      src="/pp.svg"
+                      alt="PayPal"
+                      className="h-7 w-7 opacity-40 hover:opacity-100"
+                    />
+                  </a>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
     </section>
   );
 }
