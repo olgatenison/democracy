@@ -133,22 +133,24 @@ export async function getDonation(locale) {
         : null,
     }));
 
-    const campaign = campaignList.map((entry) => ({
-      id: entry.sys.id,
-      title: entry.fields.title,
-      subtitle: entry.fields.subtitle,
-      donationLink: entry.fields.donationLink,
-      donationLinkBit1: entry.fields.donationLinkBit1,
-      image: entry.fields.image?.fields?.file?.url
-        ? "https:" + entry.fields.image.fields.file.url
-        : null,
-    }));
+    const campaign = (campaignList || [])
+      .filter((entry) => entry && entry.fields) // 🔥 убираем пустые
+      .map((entry) => ({
+        id: entry.sys.id,
+        title: entry.fields.title || "No title",
+        subtitle: entry.fields.subtitle || "",
+        donationLink: entry.fields.donationLink || null,
+        donationLinkBit1: entry.fields.donationLinkBit1 || null,
+        image: entry.fields.image?.fields?.file?.url
+          ? "https:" + entry.fields.image.fields.file.url
+          : null,
+      }));
 
     return {
       title: item.fields.donationTitle,
       subtitle: item.fields.donationSubtitle,
       listTitle: item.fields.donationListTitle,
-      listItem: item.fields.donationListItem,
+      listItem: item.fields.donationListItem || [],
       extraSubtitle: item.fields.extraSubtitle,
 
       campaignMainTitle: item.fields.donationCampaign,
